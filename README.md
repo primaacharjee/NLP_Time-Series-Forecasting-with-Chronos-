@@ -5,7 +5,7 @@
 ![AutoGluon](https://img.shields.io/badge/AutoGluon-0.4.0-blue.svg)  <!-- You may need to adjust the version -->
 ![Torch](https://img.shields.io/badge/torch-1.11.0-orange.svg)
 ![NumPy](https://img.shields.io/badge/NumPy-1.21.0-blue.svg)
-![KaggleHub](https://img.shields.io/badge/KaggleHub-API-lightgrey.svg)  <!-- This is a custom badge, adjust as needed -->
+![Kaggle Data](https://img.shields.io/badge/Kaggle-Datasets-blue.svg)
 ![Hugging Face Transformers](https://img.shields.io/badge/Hugging%20Face-Transformers-yellowgreen.svg)
 
 
