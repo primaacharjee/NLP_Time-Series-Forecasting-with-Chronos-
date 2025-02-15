@@ -52,9 +52,9 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 
 ### Models Evaluated  and Configuration
 - **Chronos (bolt_small, bolt_base)**
-- **Regressor Types:** "CAT" (CatBoost), "XGB" (XGBoost)
-- **Target Scalers:** "standard", "robust", "mean_abs", "min_max"
-- **Prediction Length**: 90 days
+- **Regressor Types:** `"CAT" (CatBoost), "XGB" (XGBoost)`
+- **Target Scalers:** `"standard", "robust", "mean_abs", "min_max"`
+- **Prediction Length**: `90 days`
 
 
 #### Experiment 2: Domain Adaptation (Stock Market Forecasting)
@@ -63,7 +63,7 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 - **Source**: Kaggle- *Stock Price Data: XOM, SHEL, BP (2021–2024)*
 
 ### Models Evaluated  
-- **Chronos Zero-Shot** – Pretrained model without fine-tuning  
+- **Chronos Zero-Shot**  
 - **Chronos Fine-Tuned** – Model fine-tuned on stock price data  
 - **Chronos Ensemble** – Combination of multiple models for improved robustness  
 
