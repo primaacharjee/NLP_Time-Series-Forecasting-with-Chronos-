@@ -83,5 +83,4 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 - **Hyperparameters**:  
   - Learning rate: `1e-4`  
   - Training steps: `2000`  
-okay
 
