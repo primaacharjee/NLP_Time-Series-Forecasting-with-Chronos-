@@ -28,35 +28,18 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 
 ## Data Enrichment and Domain Adaptation for Forecasting
 
-### Extension 1: Data Enrichment
+### Data Enrichment for Weather Forecasting
+Enhancing forecasting accuracy by incorporating covariates like day, month, season, latitude, longitude, and elevation.
 
-Enhance forecasting accuracy using contextual covariates with the following variables:
-- $y_t$: Target variable (mean air temperature).
-- $X_t$: Covariates including day, month, season, latitude, longitude, elevation.
-- $T$: Total time steps.
-- $h$: Prediction length (90 days).
+Zero-shot Forecasting: Uses Chronos’ pre-trained models to predict future temperatures directly from covariates.
+Forecasting Function: Models the relationship between covariates and temperature to optimize accuracy.
 
-**Zero-shot Forecasting:**
-\[hat{y}{t+h} = \text{Chronos}{\text{zero-shot}}(X_t)\]
+### Domain Adaptation for Stock Price Prediction
+Applying time series forecasting to stock prices over a 24-business-day horizon.
 
-**Forecasting Function:**
-\[ \hat{y}_{t+h} = f(X_t, \theta) \]
-
-### Extension 2: Domain Adaptation
-
-Forecast stock prices with historical data:
-- $y_t$: Stock price.
-- $X_t$: Feature set.
-- $T$: Total time steps.
-- $h$: Prediction length (24 business days).
-
-**Zero-shot Forecasting:**
-
-\[ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) \]
-
-**Fine-tuned Forecasting:**
-
-\[ \hat{y}_{t+h} = \text{Chronos}_{\text{fine-tuned}}(X_t, \theta) \]
+Zero-shot Forecasting: Predicts future stock prices using Chronos without training on historical data.
+Fine-tuned Forecasting: Improves predictions by training on past stock prices, adapting to company-specific trends.
+Both methods refine forecasting across weather and financial domains, improving accuracy through enriched data and model adaptation.
 
 ## Experiments
 ## Time Series Forecasting with Chronos & AutoGluon
@@ -108,5 +91,5 @@ Forecast stock prices with historical data:
 - Generalized models work, but individual training may yield better results  
 
 ---
-🔗 **For detailed results & plots, check the full report.**
+🔗 **For detailed results & plots, please check the full report.**
 
