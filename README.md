@@ -77,20 +77,7 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 **WQL**- to measure the quality of the probabilistic nature.
 It is calculated as follows:
 
+**MSE**- penalizes larger errors, helping Chronos to learn accurate predictions by emphasizing larger discrepancies between predicted and actual values.
 
-$$
-\text{WQL}(\hat{y}, y) = \frac{1}{N_q} \sum_{q=1}^{N_q} w_q \cdot \sum_{t=1}^{T} \left| \hat{y}_{t,q} - y_t \right| \cdot \mathbb{I}\left( y_t \leq \hat{y}_{t,q} \right)
-$$
-
-Where:
-
-- \( \hat{y}_{t,q} \): The predicted value for time \(t\) at quantile \(q\).
-- \( y_t \): The actual observed value at time \(t\).
-- \( N_q \): The total number of quantile levels considered (e.g., {0.1, 0.2, ..., 0.9}).
-- \( w_q \): The weight for quantile level \(q\).
-- \( T \): The total number of time steps in the forecast.
-- \( \mathbb{I}(\cdot) \): Indicator function, which equals 1 if the condition is true and 0 otherwise.
-
-**MSE**- 
-  
+#### Results-
 
