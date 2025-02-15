@@ -25,19 +25,43 @@ This study explores two key aspects of **Chronos**, a pretrained model family fo
 
 The goal is to assess **Chronos' strengths and limitations** in real-world forecasting applications.
 
-## Features - TBA
-- Implements **Retrieval-Augmented Generation (RAG)** for classification.
-- Introduces **Corpus Lexical Entropy** as a diversity metric.
-- Uses **FAISS** for fast retrieval of similar cases.
-- Employs **SBERT-NLI** embeddings for document representation.
-- Integrates **Mistral7B** for classification.
-- Proposes **[+]EXPL**, a downsampling strategy to mitigate class imbalance. 
-
-
 ## Methodology
 
-#### Extension 1-
-#### Extension 2-
+## Data Enrichment and Domain Adaptation for Forecasting
+
+### Extension 1: Data Enrichment
+
+Enhance forecasting accuracy using contextual covariates with the following variables:
+- $y_t$: Target variable (mean air temperature).
+- $X_t$: Covariates including day, month, season, latitude, longitude, elevation.
+- $T$: Total time steps.
+- $h$: Prediction length (90 days).
+
+**Zero-shot Forecasting:**
+\[ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) \]
+
+**Forecasting Function:**
+\[ \hat{y}_{t+h} = f(X_t, \theta) \]
+
+**Weighted Quantile Loss (WQL):**
+\[ \text{WQL}_q = \frac{1}{N} \sum_{i=1}^{N} w_i \left[ q \cdot \mathbb{I}(y_i \geq \hat{y}_i) + (1-q) \cdot \mathbb{I}(y_i < \hat{y}_i) \right] \]
+
+### Extension 2: Domain Adaptation
+
+Forecast stock prices with historical data:
+- $y_t$: Stock price.
+- $X_t$: Feature set.
+- $T$: Total time steps.
+- $h$: Prediction length (24 business days).
+
+**Zero-shot Forecasting:**
+\[ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) \]
+
+**Fine-tuned Forecasting:**
+\[ \hat{y}_{t+h} = \text{Chronos}_{\text{fine-tuned}}(X_t, \theta) \]
+
+**Mean Squared Error (MSE):**
+\[ MSE = \frac{1}{N} \sum_{i=1}^{N} \left( \hat{y}_{t_i+h} - y_{t_i+h} \right)^2 \]
 
 ## Experiments
 
