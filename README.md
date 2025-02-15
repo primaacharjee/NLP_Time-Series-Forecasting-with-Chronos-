@@ -11,7 +11,6 @@
 
 ## Table of Contents  
 - [Overview](#overview)  
-- [Features](#features)  
 - [Methodology](#methodology)  
 - [Experiments](#experiments)   
 - [Conclusion](#conclusion)   
@@ -67,7 +66,7 @@ Forecast stock prices with historical data:
 \[ MSE = \frac{1}{N} \sum_{i=1}^{N} \left( \hat{y}_{t_i+h} - y_{t_i+h} \right)^2 \]
 
 ## Experiments
-# Time Series Forecasting with Chronos & AutoGluon
+## Time Series Forecasting with Chronos & AutoGluon
 
 ## Dataset
 ### Weather Forecasting
