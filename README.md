@@ -31,7 +31,8 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 - Uses **FAISS** for fast retrieval of similar cases.
 - Employs **SBERT-NLI** embeddings for document representation.
 - Integrates **Mistral7B** for classification.
-- Proposes **[+]EXPL**, a downsampling strategy to mitigate class imbalance. !-- >
+- Proposes **[+]EXPL**, a downsampling strategy to mitigate class imbalance. 
+-- >
 
 ## Methodology
 
