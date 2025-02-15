@@ -53,11 +53,7 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 ### Models Evaluated  and Configuration
 - **Chronos (bolt_small, bolt_base)**
 - **Regressor Types:** `"CAT" (CatBoost), "XGB" (XGBoost)`
-- **Target Scalers** 
-  **Standard Scaler**: Scales the data to have mean = 0 and, SD = 1.
-  **Robust Scaler**: Scales the data based on the median and interquartile range; less sensitive to outliers.
-  **Mean Absolute Scaler**: Scales using the Mean Absolute value of the target variable.
-  **Min-Max Scaler**: Scales the data to a fixed range= [0, 1], using the minimum and maximum values.
+- **Target Scalers** : `Standard, Robust, Mean Absolute and, Min-Max`
 - **Prediction Length**: `90 days`
 
 
