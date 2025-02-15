@@ -44,35 +44,23 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 #### Experiment 1- Data Enrichment (Weather Forecasting)
 
 ### Dataset  
-- **Source**: Kaggle – *Philippine Weather Dataset (2020–2023)*  
-- **File Used**: `dailydata_combined.csv` (no missing values)  
-
-### Key Features  
-- **City** – Location identifier  
-- **Datetime** – Time reference  
-- **Mean Air Temperature** – Target variable  
-- **Covariates**:  
-  - Day of the week  
-  - Weekend indicator  
-  - Season (numerically encoded)   
-
+- **Source**: Kaggle – *Philippine Weather Dataset (2020–2023)*
+  
 ### Dataset Overview  
 - **Total Records**: 206,001  
 - **Total Cities**: 137 (Subset: 10 cities)  
 
-### Forecasting Data Structure (Chronos & AutoGluon Compatible)  
-| Column      | Description                   |  
-|------------|--------------------------------|  
-| `item_id`  | City identifier               |  
-| `timestamp` | Datetime                      |  
-| `target`   | Mean Temperature               |  
-| `covariates` | Day of the week, season, latitude, elevation, etc. |  
+### Models Evaluated  and Configuration
+- **Chronos (bolt_small, bolt_base)**
+- **Regressor Types:** "CAT" (CatBoost), "XGB" (XGBoost)
+- **Target Scalers:** "standard", "robust", "mean_abs", "min_max"
+- **Prediction Length**: 90 days
 
 
 #### Experiment 2: Domain Adaptation (Stock Market Forecasting)
 
 ### Dataset  
-- **Stock Price Data**: XOM, SHEL, BP (2021–2024)  
+- **Source**: Kaggle- *Stock Price Data: XOM, SHEL, BP (2021–2024)*
 
 ### Models Evaluated  
 - **Chronos Zero-Shot** – Pretrained model without fine-tuning  
