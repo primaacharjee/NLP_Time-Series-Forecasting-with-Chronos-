@@ -11,7 +11,6 @@
 
 ## Table of Contents  
 - [Overview](#overview)  
-- [Features](#features)  
 - [Methodology](#methodology)  
 - [Experiments](#experiments)   
 - [Conclusion](#conclusion)   
@@ -25,62 +24,96 @@ This study explores two key aspects of **Chronos**, a pretrained model family fo
 
 The goal is to assess **Chronos' strengths and limitations** in real-world forecasting applications.
 
-## Features - TBA
-<!-- - Implements **Retrieval-Augmented Generation (RAG)** for classification.
-- Introduces **Corpus Lexical Entropy** as a diversity metric.
-- Uses **FAISS** for fast retrieval of similar cases.
-- Employs **SBERT-NLI** embeddings for document representation.
-- Integrates **Mistral7B** for classification.
-- Proposes **[+]EXPL**, a downsampling strategy to mitigate class imbalance. !-- >
-
 ## Methodology
 
-#### Extension 1-
-#### Extension 2-
+## Data Enrichment and Domain Adaptation for Forecasting
+
+### Extension 1: Data Enrichment
+
+Enhance forecasting accuracy using contextual covariates with the following variables:
+- $y_t$: Target variable (mean air temperature).
+- $X_t$: Covariates including day, month, season, latitude, longitude, elevation.
+- $T$: Total time steps.
+- $h$: Prediction length (90 days).
+
+**Zero-shot Forecasting:**
+\[ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) \]
+
+**Forecasting Function:**
+\[ \hat{y}_{t+h} = f(X_t, \theta) \]
+
+**Weighted Quantile Loss (WQL):**
+\[ \text{WQL}_q = \frac{1}{N} \sum_{i=1}^{N} w_i \left[ q \cdot \mathbb{I}(y_i \geq \hat{y}_i) + (1-q) \cdot \mathbb{I}(y_i < \hat{y}_i) \right] \]
+
+### Extension 2: Domain Adaptation
+
+Forecast stock prices with historical data:
+- $y_t$: Stock price.
+- $X_t$: Feature set.
+- $T$: Total time steps.
+- $h$: Prediction length (24 business days).
+
+**Zero-shot Forecasting:**
+
+\[ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) \]
+
+**Fine-tuned Forecasting:**
+
+\[ \hat{y}_{t+h} = \text{Chronos}_{\text{fine-tuned}}(X_t, \theta) \]
+
+**Mean Squared Error (MSE):**
+
+\[ MSE = \frac{1}{N} \sum_{i=1}^{N} \left( \hat{y}_{t_i+h} - y_{t_i+h} \right)^2 \]
 
 ## Experiments
+## Time Series Forecasting with Chronos & AutoGluon
 
-#### Experiment 1- Data Enrichment (Weather Forecasting)
+## Dataset
+### Weather Forecasting
+- **Source:** [Kaggle: Philippine Weather Dataset (2020-2023)]([https://www.kaggle.com/](https://www.kaggle.com/datasets/bwandowando/philippine-cities-weather-data-2020-2023))
+- **Target Variable:** Mean Air Temperature  
+- **Preprocessing:** 10 cities sampled, geospatial features added  
+- **Structure:**  
+  - `item_id` – City  
+  - `timestamp` – Datetime  
+  - `target` – Temperature  
+  - `covariates` – Day, season, latitude, elevation  
 
-### Dataset  
-- **Source**: Kaggle – *Philippine Weather Dataset (2020–2023)*  
-- **File Used**: `dailydata_combined.csv` (no missing values)  
+### Stock Price Prediction (Domain Adaptation)
+- **Source:** [Kaggle: Energy Crisis & Stock Price Dataset (2021–2024)]([https://www.kaggle.com/](https://www.kaggle.com/datasets/pinuto/energy-crisis-and-stock-price-dataset-2021-2024))  
+- **Target Variable:** Close Price  
+- **Preprocessing:** Forward fill for missing values  
+- **Structure:**  
+  - `item_id` – Company (XOM, SHEL, BP)  
+  - `timestamp` – Datetime  
+  - `target` – Close Price  
 
-### Key Features  
-- **City** – Location identifier  
-- **Datetime** – Time reference  
-- **Mean Air Temperature** – Target variable  
-- **Covariates**:  
-  - Day of the week  
-  - Weekend indicator  
-  - Season (numerically encoded)   
+## Experimental Design
+- **Hardware:** Google Colab (T4 GPU)  
+- **Frameworks:** AutoGluon (`autogluon.timeseries`), Chronos  
+- **Models:**  
+  - Chronos `zeroshot`, `bolt_small` (CAT & XGB Regressor)  
+  - Fine-tuned `bolt_small` (2,000 steps, LR = $1e^{-4}$)  
+- **Hyperparameters:** Prediction length (24 days), quantile levels (0.1–0.9), WQL/MSE metrics  
 
-### Dataset Overview  
-- **Total Records**: 206,001  
-- **Total Cities**: 137 (Subset: 10 cities)  
+## Results & Analysis
+### Weather Forecasting
+- **Best Model:** ChronosXGBoost (`bolt-base`)  
+- **Forecast:** 90-day temperature prediction for 10 cities  
 
-### Forecasting Data Structure (Chronos & AutoGluon Compatible)  
-| Column      | Description                   |  
-|------------|--------------------------------|  
-| `item_id`  | City identifier               |  
-| `timestamp` | Datetime                      |  
-| `target`   | Mean Temperature               |  
-| `covariates` | Day of the week, season, latitude, elevation, etc. |  
+### Stock Market Prediction
+- **Separate Training:**  
+  - Fine-tuning improved XOM results (-58.7% MSE)  
+  - Overfitting in SHEL & BP, fine-tuned models performed worse  
+- **Combined Training:**  
+  - Zero-shot outperformed fine-tuned models for BP & SHEL  
+  - Larger dataset improved generalization  
 
+## Key Findings
+- Fine-tuning benefits some stocks but not all  
+- Zero-shot models perform well with diverse datasets  
+- Generalized models work, but individual training may yield better results  
 
-#### Experiment 2: Domain Adaptation (Stock Market Forecasting)
-
-### Dataset  
-- **Stock Price Data**: XOM, SHEL, BP (2021–2024)  
-
-### Models Evaluated  
-- **Chronos Zero-Shot** – Pretrained model without fine-tuning  
-- **Chronos Fine-Tuned** – Model fine-tuned on stock price data  
-- **Chronos Ensemble** – Combination of multiple models for improved robustness  
-
-### Training Configuration  
-- **Prediction Length**: 24 business days  
-- **Hyperparameters**:  
-  - Learning rate: `1e-4`  
-  - Training steps: `2000`  
+---
+🔗 **For detailed results & plots, check the full report.**
 
