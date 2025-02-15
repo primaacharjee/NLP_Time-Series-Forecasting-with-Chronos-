@@ -55,14 +55,17 @@ Forecast stock prices with historical data:
 - $h$: Prediction length (24 business days).
 
 **Zero-shot Forecasting:**
+$$
 \[ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) \]
-
+$$
 **Fine-tuned Forecasting:**
+$$
 \[ \hat{y}_{t+h} = \text{Chronos}_{\text{fine-tuned}}(X_t, \theta) \]
-
+$$
 **Mean Squared Error (MSE):**
+$$
 \[ MSE = \frac{1}{N} \sum_{i=1}^{N} \left( \hat{y}_{t_i+h} - y_{t_i+h} \right)^2 \]
-
+$$
 ## Experiments
 
 #### Experiment 1- Data Enrichment (Weather Forecasting)
