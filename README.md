@@ -37,7 +37,9 @@ Enhance forecasting accuracy using contextual covariates with the following vari
 - $h$: Prediction length (90 days).
 
 **Zero-shot Forecasting:**
-\[ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) \]
+<div align="center"> 
+  $$ \hat{y}_{t+h} = \text{Chronos}_{\text{zero-shot}}(X_t) $$
+</div>
 
 **Forecasting Function:**
 \[ \hat{y}_{t+h} = f(X_t, \theta) \]
