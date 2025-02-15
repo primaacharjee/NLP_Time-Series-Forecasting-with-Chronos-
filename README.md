@@ -26,13 +26,13 @@ This study explores two key aspects of **Chronos**, a pretrained model family fo
 The goal is to assess **Chronos' strengths and limitations** in real-world forecasting applications.
 
 ## Features - TBA
-<!-- - Implements **Retrieval-Augmented Generation (RAG)** for classification.
+- Implements **Retrieval-Augmented Generation (RAG)** for classification.
 - Introduces **Corpus Lexical Entropy** as a diversity metric.
 - Uses **FAISS** for fast retrieval of similar cases.
 - Employs **SBERT-NLI** embeddings for document representation.
 - Integrates **Mistral7B** for classification.
 - Proposes **[+]EXPL**, a downsampling strategy to mitigate class imbalance. 
--- >
+
 
 ## Methodology
 
