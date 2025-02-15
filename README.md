@@ -1,4 +1,4 @@
-# Heading - TBA
+#Time Series Forecasting: From Seasonal Trends to Stock Markets
 ![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)
 ![Pandas](https://img.shields.io/badge/pandas-1.3.3-blue.svg)
 ![Matplotlib](https://img.shields.io/badge/matplotlib-3.4.3-blue.svg)
