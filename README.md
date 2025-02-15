@@ -10,16 +10,22 @@
 
 
 ## Table of Contents  
-- [Introduction](#introduction)  
+- [Overview](#overview)  
 - [Features](#features)  
 - [Methodology](#methodology)  
 - [Experiments](#experiments)   
 - [Conclusion](#conclusion)   
 - [References](#references)  
-## Introduction
+## Overview
 This repository contains the implementation of our study on Time series forecasting applying Chronos  framework. 
-Our work introduces TBA.
-## Features
+This study explores two key aspects of **Chronos**, a pretrained model family for time series forecasting:
+
+1. **Data Enrichment** – Investigating whether incorporating structured features (e.g., weather conditions, geographical attributes) enhances forecasting accuracy.  
+2. **Domain Adaptation** – Evaluating how well Chronos generalizes to dynamic environments, such as stock markets influenced by external factors (e.g., energy crises).  
+
+The goal is to assess **Chronos' strengths and limitations** in real-world forecasting applications.
+
+## Features - TBA
 <!-- - Implements **Retrieval-Augmented Generation (RAG)** for classification.
 - Introduces **Corpus Lexical Entropy** as a diversity metric.
 - Uses **FAISS** for fast retrieval of similar cases.
@@ -28,3 +34,54 @@ Our work introduces TBA.
 - Proposes **[+]EXPL**, a downsampling strategy to mitigate class imbalance. !-- >
 
 ## Methodology
+
+#### Extension 1-
+#### Extension 2-
+
+## Experiments
+
+#### Experiment 1- Data Enrichment (Weather Forecasting)
+
+### Dataset  
+- **Source**: Kaggle – *Philippine Weather Dataset (2020–2023)*  
+- **File Used**: `dailydata_combined.csv` (no missing values)  
+
+### Key Features  
+- **City** – Location identifier  
+- **Datetime** – Time reference  
+- **Mean Air Temperature** – Target variable  
+- **Covariates**:  
+  - Day of the week  
+  - Weekend indicator  
+  - Season (numerically encoded)   
+
+### Dataset Overview  
+- **Total Records**: 206,001  
+- **Total Cities**: 137 (Subset: 10 cities)  
+
+### Forecasting Data Structure (Chronos & AutoGluon Compatible)  
+| Column      | Description                   |  
+|------------|--------------------------------|  
+| `item_id`  | City identifier               |  
+| `timestamp` | Datetime                      |  
+| `target`   | Mean Temperature               |  
+| `covariates` | Day of the week, season, latitude, elevation, etc. |  
+
+
+#### Experiment 2: Domain Adaptation (Stock Market Forecasting)
+
+### Dataset  
+- **Stock Price Data**: XOM, SHEL, BP (2021–2024)  
+
+### Models Evaluated  
+- **Chronos Zero-Shot** – Pretrained model without fine-tuning  
+- **Chronos Fine-Tuned** – Model fine-tuned on stock price data  
+- **Chronos Ensemble** – Combination of multiple models for improved robustness  
+
+### Training Configuration  
+- **Prediction Length**: 24 business days  
+- **Hyperparameters**:  
+  - Learning rate: `1e-4`  
+  - Training steps: `2000`  
+
+
