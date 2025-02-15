@@ -77,6 +77,7 @@ The goal is to assess **Chronos' strengths and limitations** in real-world forec
 **WQL**- to measure the quality of the probabilistic nature.
 It is calculated as follows:
 
+
 $$
 \text{WQL}(\hat{y}, y) = \frac{1}{N_q} \sum_{q=1}^{N_q} w_q \cdot \sum_{t=1}^{T} \left| \hat{y}_{t,q} - y_t \right| \cdot \mathbb{I}\left( y_t \leq \hat{y}_{t,q} \right)
 $$
