@@ -42,9 +42,6 @@ Enhance forecasting accuracy using contextual covariates with the following vari
 **Forecasting Function:**
 \[ \hat{y}_{t+h} = f(X_t, \theta) \]
 
-**Weighted Quantile Loss (WQL):**
-\[ \text{WQL}_q = \frac{1}{N} \sum_{i=1}^{N} w_i \left[ q \cdot \mathbb{I}(y_i \geq \hat{y}_i) + (1-q) \cdot \mathbb{I}(y_i < \hat{y}_i) \right] \]
-
 ### Extension 2: Domain Adaptation
 
 Forecast stock prices with historical data:
@@ -60,10 +57,6 @@ Forecast stock prices with historical data:
 **Fine-tuned Forecasting:**
 
 \[ \hat{y}_{t+h} = \text{Chronos}_{\text{fine-tuned}}(X_t, \theta) \]
-
-**Mean Squared Error (MSE):**
-
-\[ MSE = \frac{1}{N} \sum_{i=1}^{N} \left( \hat{y}_{t_i+h} - y_{t_i+h} \right)^2 \]
 
 ## Experiments
 ## Time Series Forecasting with Chronos & AutoGluon
