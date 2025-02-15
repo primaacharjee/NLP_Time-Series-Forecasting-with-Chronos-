@@ -22,7 +22,7 @@ This study explores two key aspects of **Chronos**, a pretrained model family fo
 1. **Data Enrichment** – Investigating whether incorporating structured features (e.g., weather conditions, geographical attributes) enhances forecasting accuracy.  
 2. **Domain Adaptation** – Evaluating how well Chronos generalizes to dynamic environments, such as stock markets influenced by external factors (e.g., energy crises).  
 
-The goal is to assess **Chronos' strengths and limitations** in real-world forecasting applications.
+The goal is to assess **Chronos- strengths and limitations** in real-world forecasting applications.
 
 ## Methodology
 
