@@ -71,7 +71,7 @@ Forecast stock prices with historical data:
 
 ## Dataset
 ### Weather Forecasting
-- **Source:** [Kaggle: Philippine Weather Dataset (2020-2023)](https://www.kaggle.com/)
+- **Source:** [Kaggle: Philippine Weather Dataset (2020-2023)]([https://www.kaggle.com/](https://www.kaggle.com/datasets/bwandowando/philippine-cities-weather-data-2020-2023))
 - **Target Variable:** Mean Air Temperature  
 - **Preprocessing:** 10 cities sampled, geospatial features added  
 - **Structure:**  
@@ -81,7 +81,7 @@ Forecast stock prices with historical data:
   - `covariates` – Day, season, latitude, elevation  
 
 ### Stock Price Prediction (Domain Adaptation)
-- **Source:** [Kaggle: Energy Crisis & Stock Price Dataset (2021–2024)](https://www.kaggle.com/)  
+- **Source:** [Kaggle: Energy Crisis & Stock Price Dataset (2021–2024)]([https://www.kaggle.com/](https://www.kaggle.com/datasets/pinuto/energy-crisis-and-stock-price-dataset-2021-2024))  
 - **Target Variable:** Close Price  
 - **Preprocessing:** Forward fill for missing values  
 - **Structure:**  
@@ -117,44 +117,4 @@ Forecast stock prices with historical data:
 
 ---
 🔗 **For detailed results & plots, check the full report.**
-
-#### Experiment 1- Data Enrichment (Weather Forecasting)
-
-### Dataset  
-- **Source**: Kaggle – *Philippine Weather Dataset (2020–2023)*
-  
-### Dataset Overview  
-- **Total Records**: 206,001  
-- **Total Cities**: 137 (Subset: 10 cities)  
-
-### Models Evaluated  and Configuration
-- **Chronos (bolt_small, bolt_base)**
-- **Regressor Types:** `"CAT" (CatBoost), "XGB" (XGBoost)`
-- **Target Scalers** : `Standard, Robust, Mean Absolute and, Min-Max`
-- **Prediction Length**: `90 days`
-
-
-#### Experiment 2: Domain Adaptation (Stock Market Forecasting)
-
-### Dataset  
-- **Source**: Kaggle- *Stock Price Data: XOM, SHEL, BP (2021–2024)*
-
-### Models Evaluated  
-- **Chronos Zero-Shot**  
-- **Chronos Fine-Tuned** – Model fine-tuned on stock price data  
-- **Chronos Ensemble** – Combination of multiple models for improved robustness  
-
-### Training Configuration  
-- **Prediction Length**: 24 business days  
-- **Hyperparameters**:  
-  - Learning rate: `1e-4`  
-  - Training steps: `2000`
-  
-#### Evaluation Metrics for both experiments
-**WQL**- to measure the quality of the probabilistic nature.
-It is calculated as follows:
-
-**MSE**- penalizes larger errors, helping Chronos to learn accurate predictions by emphasizing larger discrepancies between predicted and actual values.
-
-#### Results-
 
