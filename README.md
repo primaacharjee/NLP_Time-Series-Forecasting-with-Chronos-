@@ -12,8 +12,7 @@
 ## Table of Contents  
 - [Overview](#overview)  
 - [Methodology](#methodology)  
-- [Experiments](#experiments)   
-- [Conclusion](#conclusion)   
+- [Experiments](#experiments)    
 - [References](#references)  
 ## Overview
 This repository contains the implementation of our study on Time series forecasting applying Chronos  framework. 
